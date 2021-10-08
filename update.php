@@ -11,7 +11,8 @@
 </head>
 <body>
     <h1>Update Data</h1>
-    <form action="./index.php" method="POST">
+    <button class="btn btn-light"><a href="index.php">Create a User</a></button>
+    <form action="./update.php" method="POST">
     <div class="form-group">
     <label>ID</label>
     <input type="number" name="id" class="form-control" placeholder="What's your ID?">
@@ -32,23 +33,16 @@
     <label>Address</label>
     <input type="text" name="address" class="form-control" placeholder="Where do you live?">
   </div>
-  <button type="submit" name="Update" class="btn btn-primary">Update</button>
+  <button type="submit" name="update" class="btn btn-primary">Update</button>
 </body>
 </html>
 
 
 <?php
     include_once 'db.php';
-
-
-
-
     if (isset($_POST['update']))
-    {
-        if (!empty($_POST['id']) && !empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['birthday']) && !empty($_POST['address']))
-        
-        
-        {
+    {   
+      
             $id = $_POST['id'];
             $name = $_POST['name'];
             $surname = $_POST['surname'];;
@@ -56,7 +50,7 @@
             $address = $_POST['address'];
             $update = $_POST['update'];
 
-            $query = "UPDATE users SET name='$name', surname='$surname', birthday='$address', registered_at='$address' WHERE 'id'='$id'";;
+            $query = "UPDATE users SET id='$id', name='$name', surname='$surname', birthday='$birthday', registered_at='$address' WHERE 'id'='$id'";;
 
             $run = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
@@ -68,11 +62,10 @@
             {
                 echo "Error updating Data: " . mysqli_error($conn);
             }
-        }
-        else
-        {
-            echo "all fields required";
-        }
-    }
-
+   } 
+    // else
+    // {
+    //     echo "all fields required";
+    // }
+    
 ?>

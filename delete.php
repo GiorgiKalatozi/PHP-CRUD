@@ -10,6 +10,7 @@
     <title>Delete</title>
 </head>
 <body>
+    <button class="btn btn-light"><a href="index.php">Create a User</a></button>
     <h1>Delete Data by ID</h1>
     <form action="./delete.php" method="POST">
     <div class="form-group">
@@ -23,23 +24,25 @@
 <?php
 
     include_once "db.php";
-if (isset($_POST['delete']))
-    {
-    $id = $_POST['id'];
-
-    $query = "DELETE FROM users WHERE id='$id'";;
-
-    if ($query) 
+    if (isset($_POST['delete']))
         {
-            echo "data DELETED";
-        }
-        else
-        {
-            echo "error";
-        }
+        $id = $_POST['id'];
+
+        $query = "DELETE FROM users WHERE id='$id'";;
+
+        $perform = mysqli_query($conn, $query);
+
+        if ($perform) 
+            {
+                echo "data DELETED";
+            }
+            else
+            {
+                echo "error";
+            }
 
 
-        mysqli_close($conn);
+            mysqli_close($conn);
 
 
    

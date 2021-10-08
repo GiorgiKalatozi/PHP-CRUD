@@ -10,9 +10,9 @@
 </head>
 <body>
     <h1>Create an Account</h1>
-    <a href="select.php">Check info</a>
-    <a href="update.php">Update info</a>
-    <a href="delete.php">Delete info</a>
+    <button class='btn btn-light'><a href="select.php">Check info</a></button>
+    <button class="btn btn-light"><a href="update.php">Update info</a></button>
+    <button class="btn btn-light"><a href="delete.php">Delete info</a></button>
 <form action="./insert.php" method="POST">
   <div class="form-group">
     <label>Name</label>
